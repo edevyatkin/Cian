@@ -1,0 +1,86 @@
+﻿@model IEnumerable<FlatsLib.Flat>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Квартиры";
+}
+
+<style>
+    body {
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 40px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #container {
+        width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+    }
+
+    #header {
+        padding: 10px 20px 0 30px;
+        border-bottom: #ebebeb 1px solid;
+        padding-bottom: 13px;
+    }
+
+    .flat {
+        display: block;
+        overflow: hidden;
+        padding: 20px;
+        border-bottom: #ebebeb 1px solid;
+        display: flex;
+    }
+
+    .leftside {
+        padding-right: 15px;
+        width: 200px;
+    }
+
+    .rightside {
+        padding-left: 15px;
+        flex-grow: 1;
+    }
+</style>
+<div id="container">
+    <div id="header">
+        <img src="//images.directcrm.ru/campaigns/51720/136312/email/letters/CIAN/API_mailings/PodpiskaSaleKvartiryNew/logo.png" style="border:0" height="33" width="93">
+    </div>
+
+@if (Model.Count() == 0)
+{
+    <div style="overflow:hidden">
+        <p style="text-align:center">Нет новых квартир</p>
+    </div>
+}
+
+@foreach (FlatsLib.Flat f in Model)
+{
+    <div class="flat">
+        <div class="leftside">
+            <a href="@f.OfferUrl" style="text-decoration:none">
+                <img src="@f.PhotoUrl" style="width:200px;height:150px;border:none!important" height="150" width="200" border="0">
+            </a>
+            <br />
+            <span style="line-height:9px">&nbsp; <br /></span>
+            <span style="font:400 13px/15px helvetica,arial,sans-serif;color:#2e2e2e">@f.PhotoCount фото</span>
+        </div>
+        <div class="rightside">
+            <h2 style="margin:0;font:700 15px/1.2 helvetica,arial,sans-serif;color:#121212">@f.Building</h2>
+            <span style="font:400 13px/1.4 helvetica,arial,sans-serif;color:#121212">@f.Metro<br><br>@f.Address<br><br></span>
+            <span style="font:700 15px/1.2 helvetica,arial,sans-serif;color:#121212"><b>@f.Price</b><br><br></span>
+            <div style="overflow:hidden">
+                <div style="float:left">
+                    <a href="@f.OfferUrl" style="color:#fff!important;text-decoration:none!important">
+                        <span class="button link" style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;float:left;display:inline-block;background-color:#2B87DB;color:#FFFFFF;border-radius:20px;font:700 12px/normal helvetica,arial,sans-serif;padding:7px 16px;text-decoration:none"><nobr>Посмотреть</nobr></span>
+                    </a>
+                </div>
+                <div style="float:right;font:400 13px/normal helvetica,arial,sans-serif;color:#7A7A7A;padding:7px 0;text-align:right">
+                    <span class="date escape_date"> @f.EscapeDate <br> <strong>@f.MailDate</strong> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</div>
