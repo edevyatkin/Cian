@@ -22,8 +22,7 @@ namespace CianWeb.Controllers
             IFlatsSource source = new ImapFlatsSource(_settings);
             IEnumerable<Flat> flats = source.GetAll();
             flats = flats
-                .OrderByDescending(flat => flat.Id)
-                .ThenByDescending(flat => flat.MailDate)
+                .OrderByDescending(flat => flat.MailDate)
                 .ThenByDescending(flat => flat.EscapeDate)
                 .Distinct()
                 .ToList();
