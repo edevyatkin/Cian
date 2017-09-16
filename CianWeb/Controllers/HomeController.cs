@@ -19,6 +19,11 @@ namespace CianWeb.Controllers
 
         public ViewResult Index()
         {
+            return View();
+        }
+
+        public JsonResult GetAllFlats()
+        {
             IFlatsSource source = new ImapFlatsSource(_settings);
             IEnumerable<Flat> flats = source.GetAll();
             flats = flats
@@ -26,7 +31,7 @@ namespace CianWeb.Controllers
                 .ThenByDescending(flat => flat.EscapeDate)
                 .Distinct()
                 .ToList();
-            return View(flats);
+            return Json(flats);
         }
     }
 }
