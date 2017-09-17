@@ -6,7 +6,7 @@ namespace FlatsLib {
         public string Building { get; set; }
         public string Metro { get; set; }
         public string Address { get; internal set; }
-        public string Price { get; internal set; }
+        public int Price { get; internal set; }
         public bool Active { get; set; }
         public string OfferUrl { get; set; }
         public string PhotoUrl { get; set; }

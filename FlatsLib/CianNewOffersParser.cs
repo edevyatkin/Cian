@@ -89,13 +89,14 @@ namespace FlatsLib
             return descriptionNode.SelectSingleNode(timeXPath).InnerHtml;
         }
 
-        private string GetPrice(HtmlNode descriptionNode)
+        private int GetPrice(HtmlNode descriptionNode)
         {
             var priceXPath = "./span[2]/b";
-            return descriptionNode
+            return int.Parse(descriptionNode
                 .SelectSingleNode(priceXPath)
                 .InnerHtml
-                .Replace("&nbsp;", " ");
+                .Replace("&nbsp;", "")
+                .Replace("руб.",""));
         }
 
         private string GetAddress(HtmlNode descriptionNode)

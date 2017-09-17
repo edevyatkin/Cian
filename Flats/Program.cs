@@ -27,7 +27,7 @@ namespace Flats
                 .AddLine(nameof(flat.Building), flat.Building)
                 .AddLine(nameof(flat.Metro), flat.Metro)
                 .AddLine(nameof(flat.Address), flat.Address)
-                .AddLine(nameof(flat.Price), flat.Price)
+                .AddLine(nameof(flat.Price), flat.Price.ToString())
                 .AddLine(nameof(flat.OfferUrl), flat.OfferUrl)
                 .AddLine(nameof(flat.PhotoUrl), flat.PhotoUrl)
                 .AddLine(nameof(flat.EscapeDate), flat.EscapeDate);

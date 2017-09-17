@@ -42,6 +42,7 @@
         flex-grow: 1;
     }
 </style>
+
 <div id="container" ng-app="FlatsApp" ng-controller="FlatsController">
     <div id="header">
         <img src="//images.directcrm.ru/campaigns/51720/136312/email/letters/CIAN/API_mailings/PodpiskaSaleKvartiryNew/logo.png" style="border:0" height="33" width="93">
@@ -58,7 +59,7 @@
     <div class="flat" ng-repeat="f in data | orderBy: selectedOrdering.name">
         <div class="leftside">
             <a href="{{ f.offerUrl }}" style="text-decoration:none">
-                <img src="{{ f.photoUrl }}" style="width:200px;height:150px;border:none!important" height="150" width="200" border="0">
+                <img alt="" ng-src="{{ f.photoUrl }}" style="width:200px;height:150px;border:none!important" height="150" width="200" border="0">
             </a>
             <br />
             <span style="line-height:9px">&nbsp; <br /></span>
@@ -67,7 +68,7 @@
         <div class="rightside">
             <h2 style="margin:0;font:700 15px/1.2 helvetica,arial,sans-serif;color:#121212">{{ f.building }}</h2>
             <span style="font:400 13px/1.4 helvetica,arial,sans-serif;color:#121212"><span ng-model="metro">{{ f.metro }}</span><br><br><span ng-model="address">{{ f.address }}</span><br><br></span>
-            <span style="font:700 15px/1.2 helvetica,arial,sans-serif;color:#121212"><b><span ng-model="price">{{ f.price }}</span></b><br><br></span>
+            <span style="font:700 15px/1.2 helvetica,arial,sans-serif;color:#121212"><b><span ng-model="price">{{ f.price | currency : undefined : 0 }}</span></b><br><br></span>
             <div style="overflow:hidden">
                 <div style="float:left">
                     <a href="{{ f.offerUrl }}" style="color:#fff!important;text-decoration:none!important">

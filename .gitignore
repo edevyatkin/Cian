@@ -263,3 +263,4 @@ __pycache__/
 #Custom ignore
 CianWeb/imapConfig.json
 Flats/imapConfig.json
+CianWeb/wwwroot/lib/
