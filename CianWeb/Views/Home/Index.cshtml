@@ -43,7 +43,7 @@
     }
 </style>
 
-<div id="container" ng-app="FlatsApp" ng-controller="FlatsController">
+<div lazy-img-container id="container" ng-app="FlatsApp" ng-controller="FlatsController">
     <div id="header">
         <img src="//images.directcrm.ru/campaigns/51720/136312/email/letters/CIAN/API_mailings/PodpiskaSaleKvartiryNew/logo.png" style="border:0" height="33" width="93">
     </div>
@@ -59,7 +59,7 @@
     <div class="flat" ng-repeat="f in data | orderBy: selectedOrdering.name">
         <div class="leftside">
             <a href="{{ f.offerUrl }}" style="text-decoration:none">
-                <img alt="" ng-src="{{ f.photoUrl }}" style="width:200px;height:150px;border:none!important" height="150" width="200" border="0">
+                <img alt="" lazy-img="{{ f.photoUrl }}" style="width:200px;height:150px;border:none!important" height="150" width="200" border="0">
             </a>
             <br />
             <span style="line-height:9px">&nbsp; <br /></span>

@@ -1,4 +1,4 @@
-﻿var app = angular.module("FlatsApp", []);
+﻿var app = angular.module("FlatsApp", ['angularLazyImg']);
 app.controller("FlatsController", function ($scope, $http) {
     $scope.orderingItems = [
         { name: "price", label: "Цена" },
