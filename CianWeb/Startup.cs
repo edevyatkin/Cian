@@ -19,8 +19,9 @@ namespace CianWeb
 
         public Startup(IHostingEnvironment env)
         {
+            var configDir = System.IO.Directory.GetParent(env.ContentRootPath).FullName;
             var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
+                .SetBasePath(configDir)
                 .AddJsonFile("imapConfig.json");
             Configuration = builder.Build();
         }
