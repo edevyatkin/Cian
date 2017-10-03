@@ -30,7 +30,8 @@ namespace Flats
                 .AddLine(nameof(flat.Price), flat.Price.ToString())
                 .AddLine(nameof(flat.OfferUrl), flat.OfferUrl)
                 .AddLine(nameof(flat.PhotoUrl), flat.PhotoUrl)
-                .AddLine(nameof(flat.EscapeDate), flat.EscapeDate);
+                .AddLine(nameof(flat.EscapeDate), flat.EscapeDate)
+                .AddLine(nameof(flat.MailDate), flat.MailDate.ToString());
             Console.WriteLine(builder.Build());
         }
 
@@ -50,7 +51,7 @@ namespace Flats
         }
 
         static void Main(string[] args) {
-            ImapConfig config = ParseJsonConfig("imapConfig.json");
+            ImapConfig config = ParseJsonConfig("../imapConfig.json");
             IFlatsSource source = new ImapFlatsSource(config);
             IEnumerable<Flat> flats = source.GetAll();
             DisplayAllFlats(flats);
