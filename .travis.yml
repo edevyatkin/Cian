@@ -1,7 +1,7 @@
 language: csharp
 dotnet: 2.0.2
 mono: none
-solution: Cian.sln
-script:
+before_script:
  - dotnet restore
- 
+script:
+ - dotnet build -c Release
